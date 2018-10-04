@@ -1,5 +1,6 @@
 // Bundle css for this view
 import 'sanitize.css'
+import '../lib/Evie/css/style.css'
 import './style.css'
 
 import {h} from '../lib/hyperappv2.js'
