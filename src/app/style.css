@@ -1,0 +1,55 @@
+/* Nested selectors, rucksack shortcuts & cssnext enabled, go wild! */
+
+/*------------------------------------*\
+    Global css
+\*------------------------------------*/
+
+:root {
+	--text-color: #525f7f;
+	--background-color: #ffffff;
+	--accent-color: #6772e5;
+}
+
+html {
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-size: responsive 14px 18px;
+  font-range: 420px 1280px;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+body {
+  position: relative;
+  overflow-x: hidden;
+}
+
+main {
+  padding: 1rem;
+}
+
+button, input, select, textarea {
+  color: inherit;
+  margin-top: 1rem;
+  padding: 0.5rem;
+  &[disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+img {
+  max-width: 100%;
+}
+
+svg {
+  fill: none;
+}
+
+::selection {
+	background: var(--accent-color);
+	color: var(--background-color);
+}
