@@ -1,5 +1,5 @@
 // Bundle css for this view
-import '../lib/Evie/css/style.css'
+import './evie.css'
 
 import {h} from '../lib/hyperappv2.js'
 import {setInputValue, addItem, updateItem, toggleItem, deleteItem} from './actions'

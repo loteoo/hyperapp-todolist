@@ -856,7 +856,6 @@ select {
 .hero {
   position: relative;
   width: 100%;
-  background-image: url("../images/evie_default_bg.jpeg");
   box-shadow: 0 4px 11px rgba(124, 146, 169, 0.5);
   background-size: cover;
   background-position: center center;
