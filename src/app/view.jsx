@@ -1,27 +1,48 @@
 // Bundle css for this view
-import 'sanitize.css'
 import '../lib/Evie/css/style.css'
-import './style.css'
 
 import {h} from '../lib/hyperappv2.js'
 import {setInputValue, addItem, updateItem, toggleItem, deleteItem} from './actions'
 
 // Root view
 export const view = state => (
-  <main>
-    <h1>Hyperapp 2.0!</h1>
-    <p>1 kB JavaScript micro-framework for building declarative web applications</p>
-    <h4>Todo items:</h4>
-    <ul>
-      {state.items.map(item => <Item {...item} />)}
-    </ul>
-    <b>Total: {state.items.length}</b>
-    <br/>
-    <input type="text" value={state.inputValue} oninput={setInputValue} />
-    <button onclick={addItem} disabled={!state.inputValue}>New item</button>
+  <div>
+    <header class="page__header">
+      <div class="hero__overlay hero__overlay--gradient"></div>
+      <div class="page__header__inner">
+        <div class="container">
+          <div class="page__header__content">
+            <div class="page__header__content__inner" id="navConverter">
+              <h1 class="page__header__title">Hyperapp 2.0!</h1>
+              <p class="page__header__text">1 kB JavaScript micro-framework for building declarative web applications</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+    <div class="landing__section">
+      <div class="container">
+        <h2>Todo items:</h2>
+      </div>
+    </div>
+    <div class="expanded landing__section">
+      <div class="container">
+          <ul>
+            {state.items.map(item => <Item {...item} />)}
+          </ul>
+          <b>Total: {state.items.length}</b>
+          <br/>
+          <input type="text" value={state.inputValue} oninput={setInputValue} />
+          <button onclick={addItem} disabled={!state.inputValue}>New item</button>
+      </div>
+    </div>
+
+    </main>
     <h4>State: </h4>
     <pre>{JSON.stringify(state, null, 2)}</pre>
-  </main>
+  </div>
 )
 
 
