@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
-  "name": "hyperapp-boilerplate",
-  "description": "Hyperapp PWA boilerplate",
+  "name": "hyperapp-todolist",
+  "description": "Hyperapp 2.0 todo list app",
   "author": "Alexandre Lotte",
   "license": "MIT",
   "scripts": {

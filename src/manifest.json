@@ -1,7 +1,7 @@
 {
-  "short_name": "Hyperapp",
-  "name": "Hyperapp boilerplate",
-  "description": "Hyperapp starter kit with development on steroids",
+  "short_name": "Todolist",
+  "name": "Hyperapp todolist",
+  "description": "Hyperapp 2.0 todo list app",
   "display": "fullscreen",
   "scope": "/",
   "start_url": "/",
