@@ -1,6 +1,7 @@
 # Hyperapp 2.0 todo list app
 *Comparing different front-end frameworks*  
 
+https://loteoo.github.io/hyperapp-todolist/
 
 ---
 ![Screenshot](https://raw.githubusercontent.com/loteoo/hyperapp-todolist/master/src/assets/app-demo.gif)
