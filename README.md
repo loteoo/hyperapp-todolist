@@ -3,7 +3,7 @@
 
 
 ---
-![Screenshot](https://raw.githubusercontent.com/loteoo/hyperapp-todolist/master/src/assets/screenshot.png)
+![Screenshot](https://raw.githubusercontent.com/loteoo/hyperapp-todolist/master/src/assets/demo.gif)
 ---
 
 
