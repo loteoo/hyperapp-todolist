@@ -2,7 +2,7 @@
 // Initial state of the app
 export const init = {
   inputValue: '',
-  stateIsShown: true,
+  stateIsShown: false,
   items: []
 }
 

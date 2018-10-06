@@ -4,6 +4,34 @@
     Global css
 \*------------------------------------*/
 
+@font-face {
+  font-family: 'CircularStd';
+  src: url('../assets/CircularStd/CircularStd-Book.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'CircularStd';
+  src: url('../assets/CircularStd/CircularStd-Medium.otf');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'CircularStd';
+  src: url('../assets/CircularStd/CircularStd-Bold.otf');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'CircularStd';
+  src: url('../assets/CircularStd/CircularStd-Black.otf');
+  font-weight: 900;
+  font-style: normal;
+}
+
 :root {
 	--text-color: #FFFFFF;
 	--background-color: #323232;
@@ -13,7 +41,7 @@
 html {
   width: 100%;
   height: 100%;
-  font-family: 'Open Sans', Arial, sans-serif;
+  font-family: 'CircularStd', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: responsive 14px 18px;
   font-range: 420px 1280px;
   color: var(--text-color);
@@ -29,25 +57,23 @@ body {
   overflow-x: hidden;
 }
 
-.app {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+.container {
   min-height: calc(100vh - 3rem);
   padding: 3rem 1rem;
+  width: 100%;
+  max-width: 992px;
+  margin: 0 auto;
 }
 
 
 
 .card {
-  width: 100%;
-  max-width: 992px;
   padding: 1rem;
   background-color: #1A1A1A;
   border-radius: 1rem;
   display: flex;
-  margin: 3rem 0;
+  min-height: 420px;
+  align-items: center;
 }
 
 
@@ -68,12 +94,27 @@ main {
   background-color: #212121;
 }
 
-footer {
-  width: 100%;
-  max-width: 992px;
+.state-viewer {
   margin: 3rem 0;
+  text-align: center;
+  >pre {
+    text-align: left;
+    padding: 1rem;
+    background-color: #212121;
+    border-radius: 1rem;
+  }
 }
 
+footer {
+  margin: 3rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+a {
+  color: inherit;
+}
 
 button, input, select, textarea {
   background-color: transparent;
@@ -132,9 +173,12 @@ svg {
 .item {
   >.inner {
     display: flex;
-    align-items: center;
+    align-items: stretch;
     >.name {
+      display: flex;
+      align-items: center;
       width: 100%;
+      padding: 0 0.5rem;
     }
   }
 }

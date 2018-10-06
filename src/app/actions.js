@@ -52,7 +52,8 @@ export const toggleItem = (state, id) => ({
   )
 })
 
-// Inverts the "editing" attribute of an item by ID
+// Inverts the "editing" attribute of an item by ID,
+// and sets to false for all other items
 export const toggleItemEditing = (state, id, ev) => {
   ev.preventDefault();
   return {
@@ -60,7 +61,7 @@ export const toggleItemEditing = (state, id, ev) => {
     items:  state.items.map(item => 
       id === item.id 
         ? ({...item, editing: !item.editing})
-        : item
+        : ({...item, editing: false})
     )
   }
 }

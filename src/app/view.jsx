@@ -17,7 +17,7 @@ import {Close, Circle, CheckedCircle, Plus, Check} from './icons.js'
 
 // Root view
 export const view = state => (
-  <div class="app">
+  <div class="container">
 
     <div class="card">
       <header>
@@ -29,8 +29,8 @@ export const view = state => (
 
         
         <form class="new-item-form" onsubmit={addItem} method="post">
-          <input type="text" value={state.inputValue} oninput={setInputValue} />
-          <button type="submit" disabled={!state.inputValue}><Plus /></button>
+          <input type="text" value={state.inputValue} oninput={setInputValue} required />
+          <button type="submit"><Plus /></button>
         </form>
         
         <h4>{state.items.length} items</h4>
@@ -42,11 +42,14 @@ export const view = state => (
       </main>
     </div>
 
+    <div class="state-viewer">
+      <button onclick={toggleStateViewer}>{state.stateIsShown ? 'Hide state' : 'Show app state'}</button>
+      {state.stateIsShown ? <pre>{JSON.stringify(state, null, 2)}</pre> : null}
+    </div>
+
     <footer>
-      <div class="state-viewer">
-        <button onclick={toggleStateViewer}>{state.stateIsShown ? 'Hide state' : 'Show app state'}</button>
-        {state.stateIsShown ? <pre>{JSON.stringify(state, null, 2)}</pre> : null}
-      </div>
+      <p>Built by <a href="https://alexlotte.ca/" target="_blank">Alexandre Lotte</a> using <a href="https://github.com/jorgebucaran/hyperapp" target="_blank">Hyperapp</a>.</p>
+      <p><a href="https://github.com/loteoo/hyperapp-todolist" target="_blank">Source code</a></p>
     </footer>
   </div>
 )
@@ -62,7 +65,7 @@ const Item = ({id, value, done, editing}) => (
       editing
       ? (
         <form class="inner" method="post" onsubmit={[toggleItemEditing, id]}>
-          <input type="text" value={value} oninput={[updateItem, id]} />
+          <input type="text" value={value} oninput={[updateItem, id]} required />
           <button class="confirm"><Check /></button>
         </form>
       )
@@ -80,8 +83,6 @@ const Item = ({id, value, done, editing}) => (
         </div>
       )
     }
-    
-    
   </li>
 )
 
