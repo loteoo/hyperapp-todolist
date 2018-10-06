@@ -109,7 +109,7 @@ coverage
 ############################
 
 dist
-public
+build
 *cache
 
 
