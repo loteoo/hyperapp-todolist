@@ -18,39 +18,27 @@ import {Close, Circle, CheckedCircle, Plus, Check} from './icons.js'
 // Root view
 export const view = state => (
   <div class="container">
-
     <div class="card">
-      <header>
+      <div class="info">
         <h1>Hyperapp Todolist</h1>
-        <p>Hyperapp 2.0 todolist app.</p>
-      </header>
-
-      <main>
-
-        
+        <p>Built with <a href="https://github.com/jorgebucaran/hyperapp" target="_blank">Hyperapp 2.0</a> by <a href="https://alexlotte.ca/" target="_blank">Alexandre Lotte</a>.</p>
+        <p><a href="https://github.com/loteoo/hyperapp-todolist" target="_blank">Source code</a></p>
+      </div>
+      <div class="todo-list">
         <form class="new-item-form" onsubmit={addItem} method="post">
-          <input type="text" value={state.inputValue} oninput={setInputValue} required />
+          <input type="text" placeholder="Type something here..." value={state.inputValue} oninput={setInputValue} required />
           <button type="submit"><Plus /></button>
         </form>
-        
         <h4>{state.items.length} items</h4>
         <ul class="list">
           {state.items.map(item => <Item {...item} />)}
         </ul>
-        
-        
-      </main>
+      </div>
     </div>
-
     <div class="state-viewer">
       <button onclick={toggleStateViewer}>{state.stateIsShown ? 'Hide state' : 'Show app state'}</button>
       {state.stateIsShown ? <pre>{JSON.stringify(state, null, 2)}</pre> : null}
     </div>
-
-    <footer>
-      <p>Built by <a href="https://alexlotte.ca/" target="_blank">Alexandre Lotte</a> using <a href="https://github.com/jorgebucaran/hyperapp" target="_blank">Hyperapp</a>.</p>
-      <p><a href="https://github.com/loteoo/hyperapp-todolist" target="_blank">Source code</a></p>
-    </footer>
   </div>
 )
 
@@ -65,7 +53,7 @@ const Item = ({id, value, done, editing}) => (
       editing
       ? (
         <form class="inner" method="post" onsubmit={[toggleItemEditing, id]}>
-          <input type="text" value={value} oninput={[updateItem, id]} required />
+          <input type="text" value={value} onCreate={el => el.focus()} oninput={[updateItem, id]} required />
           <button class="confirm"><Check /></button>
         </form>
       )

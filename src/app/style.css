@@ -72,27 +72,32 @@ body {
   background-color: #1A1A1A;
   border-radius: 1rem;
   display: flex;
+  align-items: center;
   min-height: 420px;
-  align-items: center;
+  .info {
+    width: 50%;
+    padding: 1rem;
+    text-align: center;
+  }
+  
+  .todo-list {
+    width: 50%;
+    padding: 1rem;
+    border-radius: 1rem;
+    background-color: #212121;
+    min-height: 320px;
+  }
+  
+  @media (max-width: 768px) {
+    flex-direction: column;
+    .info,
+    .todo-list {
+      width: 100%;
+    }
+  }
 }
 
 
-header {
-  width: 50%;
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-main {
-  width: 50%;
-  padding: 1rem;
-  border-radius: 1rem;
-  background-color: #212121;
-}
 
 .state-viewer {
   margin: 3rem 0;
@@ -119,7 +124,6 @@ a {
 button, input, select, textarea {
   background-color: transparent;
   border: none;
-  padding: 0.5rem;
   color: inherit;
   &:focus {
     outline: none;
@@ -137,11 +141,12 @@ input[type="password"] {
   width: 100%;
   padding: 0.5rem 1rem;
   background-color: rgba(255,255,255,0.1);
-  border-radius: 1rem;
+  border-radius: 3rem;
 }
 
 button {
   cursor: pointer;
+  padding: 0.5rem;
 }
 
 img {
@@ -171,6 +176,11 @@ svg {
 
 
 .item {
+  overflow: hidden;
+  border-radius: 3rem;
+  &:hover {
+    background-color: rgba(255,255,255,0.05);
+  }
   >.inner {
     display: flex;
     align-items: stretch;
