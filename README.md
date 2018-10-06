@@ -1,5 +1,5 @@
 # Hyperapp 2.0 todo list app
-*Comparing different front-end frameworks*
+*Comparing different front-end frameworks*  
 
 ```
 # Clone project
@@ -14,3 +14,7 @@ npm start       # Dev server + live reload
 ```
 npm run build   # Build for production
 ```
+
+---
+![Screenshot](https://raw.githubusercontent.com/loteoo/hyperapp-todolist/master/src/assets/screenshot.png)
+---
