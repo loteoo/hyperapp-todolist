@@ -21,7 +21,7 @@ export const view = state => (
     <div class="card">
       <div class="info">
         <h1>Hyperapp Todolist</h1>
-        <p>Built with <a href="https://github.com/jorgebucaran/hyperapp" target="_blank">Hyperapp 2.0</a> by <a href="https://alexlotte.ca/" target="_blank">Alexandre Lotte</a>.</p>
+        <p>Built with <a href="https://github.com/jorgebucaran/hyperapp" target="_blank">Hyperapp 2.0</a></p>
         <p><a href="https://github.com/loteoo/hyperapp-todolist" target="_blank">Source code</a></p>
       </div>
       <div class="todo-list">

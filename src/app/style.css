@@ -59,7 +59,7 @@ body {
 
 .container {
   min-height: calc(100vh - 3rem);
-  padding: 3rem 1rem;
+  padding: 15vh 1rem;
   width: 100%;
   max-width: 992px;
   margin: 0 auto;
