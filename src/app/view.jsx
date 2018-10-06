@@ -1,56 +1,88 @@
 // Bundle css for this view
-import './evie.css'
+import 'sanitize.css'
+import './style.css'
 
 import {h} from '../lib/hyperappv2.js'
-import {setInputValue, addItem, updateItem, toggleItem, deleteItem} from './actions'
+import {
+  setInputValue,
+  addItem,
+  updateItem,
+  toggleItem,
+  deleteItem,
+  toggleStateViewer,
+  toggleItemEditing
+} from './actions'
+
+import {Close, Circle, CheckedCircle, Plus, Check} from './icons.js'
 
 // Root view
 export const view = state => (
-  <div>
-    <header class="page__header">
-      <div class="hero__overlay hero__overlay--gradient"></div>
-      <div class="page__header__inner">
-        <div class="container">
-          <div class="page__header__content">
-            <div class="page__header__content__inner" id="navConverter">
-              <h1 class="page__header__title">Hyperapp 2.0!</h1>
-              <p class="page__header__text">1 kB JavaScript micro-framework for building declarative web applications</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </header>
+  <div class="app">
 
-    <main>
-    <div class="landing__section">
-      <div class="container">
-        <h2>Todo items:</h2>
-      </div>
-    </div>
-    <div class="expanded landing__section">
-      <div class="container">
-          <ul>
-            {state.items.map(item => <Item {...item} />)}
-          </ul>
-          <b>Total: {state.items.length}</b>
-          <br/>
+    <div class="card">
+      <header>
+        <h1>Hyperapp Todolist</h1>
+        <p>Hyperapp 2.0 todolist app.</p>
+      </header>
+
+      <main>
+
+        
+        <form class="new-item-form" onsubmit={addItem} method="post">
           <input type="text" value={state.inputValue} oninput={setInputValue} />
-          <button onclick={addItem} disabled={!state.inputValue}>New item</button>
-      </div>
+          <button type="submit" disabled={!state.inputValue}><Plus /></button>
+        </form>
+        
+        <h4>{state.items.length} items</h4>
+        <ul class="list">
+          {state.items.map(item => <Item {...item} />)}
+        </ul>
+        
+        
+      </main>
     </div>
 
-    </main>
-    <h4>State: </h4>
-    <pre>{JSON.stringify(state, null, 2)}</pre>
+    <footer>
+      <div class="state-viewer">
+        <button onclick={toggleStateViewer}>{state.stateIsShown ? 'Hide state' : 'Show app state'}</button>
+        {state.stateIsShown ? <pre>{JSON.stringify(state, null, 2)}</pre> : null}
+      </div>
+    </footer>
   </div>
 )
 
 
+
+
+
 // Item component
-const Item = ({id, value, done}) => (
-  <li key={id}>
-    <input type="text" value={value} oninput={[updateItem, id]} disabled={done} />
-    <button onclick={[deleteItem, id]}>Delete</button>
-    <button onclick={[toggleItem, id]}>{done ? 'Uncheck' : 'Check'}</button>
+const Item = ({id, value, done, editing}) => (
+  <li class="item" key={id}>
+    {
+      editing
+      ? (
+        <form class="inner" method="post" onsubmit={[toggleItemEditing, id]}>
+          <input type="text" value={value} oninput={[updateItem, id]} />
+          <button class="confirm"><Check /></button>
+        </form>
+      )
+      : (
+        <div class="inner">
+          <button class="check" onclick={[toggleItem, id]}>{done ? <CheckedCircle /> : <Circle />}</button>
+          <div class="name" ondblclick={[toggleItemEditing, id]}>
+            {
+              done
+              ? <strike>{value}</strike>
+              : <span>{value}</span>
+            }
+          </div>
+          <button class="delete" onclick={[deleteItem, id]}><Close /></button>
+        </div>
+      )
+    }
+    
+    
   </li>
 )
+
+

@@ -10,16 +10,27 @@ export const setInputValue = (state, ev) => ({
   inputValue: ev.target.value
 })
 
+// Sets the new item input value in the state
+export const toggleStateViewer = (state) => ({
+  ...state,
+  stateIsShown: !state.stateIsShown
+})
+
 // Adds a new item in the array
 // and resets the input.
-export const addItem = (state) => ({
-  inputValue: '',
-  items: state.items.concat({
-    id: generateUUID(),
-    value: state.inputValue,
-    done: false
-  })
-})
+export const addItem = (state, ev) => {
+  ev.preventDefault();
+  return {
+    ...state,
+    inputValue: '',
+    items: state.items.concat({
+      id: generateUUID(),
+      value: state.inputValue,
+      done: false,
+      editing: false
+    })
+  }
+}
 
 // Updates the "value" attribute of an item by ID
 export const updateItem = (state, id, ev) => ({
@@ -40,6 +51,19 @@ export const toggleItem = (state, id) => ({
       : item
   )
 })
+
+// Inverts the "editing" attribute of an item by ID
+export const toggleItemEditing = (state, id, ev) => {
+  ev.preventDefault();
+  return {
+    ...state,
+    items:  state.items.map(item => 
+      id === item.id 
+        ? ({...item, editing: !item.editing})
+        : item
+    )
+  }
+}
 
 // Removes an item in the array by ID
 export const deleteItem = (state, id) => ({

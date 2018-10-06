@@ -1,0 +1,141 @@
+/* Nested selectors, rucksack shortcuts & cssnext enabled, go wild! */
+
+/*------------------------------------*\
+    Global css
+\*------------------------------------*/
+
+:root {
+	--text-color: #FFFFFF;
+	--background-color: #323232;
+	--accent-color: #06D19C;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-size: responsive 14px 18px;
+  font-range: 420px 1280px;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+body {
+  position: relative;
+  overflow-x: hidden;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 3rem);
+  padding: 3rem 1rem;
+}
+
+
+
+.card {
+  width: 100%;
+  max-width: 992px;
+  padding: 1rem;
+  background-color: #1A1A1A;
+  border-radius: 1rem;
+  display: flex;
+  margin: 3rem 0;
+}
+
+
+header {
+  width: 50%;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+main {
+  width: 50%;
+  padding: 1rem;
+  border-radius: 1rem;
+  background-color: #212121;
+}
+
+footer {
+  width: 100%;
+  max-width: 992px;
+  margin: 3rem 0;
+}
+
+
+button, input, select, textarea {
+  background-color: transparent;
+  border: none;
+  padding: 0.5rem;
+  color: inherit;
+  &:focus {
+    outline: none;
+  }
+}
+
+
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="text"],
+input[type="tel"],
+input[type="url"],
+input[type="password"] {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  background-color: rgba(255,255,255,0.1);
+  border-radius: 1rem;
+}
+
+button {
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+}
+
+svg {
+  fill: none;
+}
+
+::selection {
+	background: var(--accent-color);
+	color: var(--background-color);
+}
+
+
+.new-item-form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+}
+
+
+.item {
+  >.inner {
+    display: flex;
+    align-items: center;
+    >.name {
+      width: 100%;
+    }
+  }
+}
+

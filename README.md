@@ -7,7 +7,7 @@ git clone https://github.com/loteoo/hyperapp-todolist.git
 
 cd hyperapp-todolist
 
-npm install     # Install dependencies
+npm install     # Install dev dependencies
 npm start       # Dev server + live reload
 ```
 
