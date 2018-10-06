@@ -1,4 +1,4 @@
-import {app} from '../lib/hyperappv2.js'
+import {app} from '../../hyperapp.js' // Hyperapp v2
 import {init} from './init'
 import {view} from './view'
 

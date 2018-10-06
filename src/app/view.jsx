@@ -2,20 +2,16 @@
 import 'sanitize.css'
 import './style.css'
 
-import {h} from '../lib/hyperappv2.js'
-import {
-  setInputValue,
-  addItem,
-  updateItem,
-  toggleItem,
-  deleteItem,
-  toggleStateViewer,
-  toggleItemEditing
-} from './actions'
+ // Hyperapp v2
+import {h} from '../../hyperapp.js'
 
+// import actions
+import {setInputValue, addItem, updateItem, toggleItem, deleteItem, toggleStateViewer, toggleItemEditing} from './actions'
+
+// Import icon components
 import {Close, Circle, CheckedCircle, Plus, Check} from './icons.js'
 
-// Root view
+// Root application view
 export const view = state => (
   <div class="container">
     <div class="card">
@@ -41,10 +37,6 @@ export const view = state => (
     </div>
   </div>
 )
-
-
-
-
 
 // Item component
 const Item = ({id, value, done, editing}) => (

@@ -2,7 +2,8 @@
 // Global actions 
 // ==================
 
-import {generateUUID} from './utils'
+// Generates unique ids
+import nanoid from 'nanoid'
 
 // Sets the new item input value in the state
 export const setInputValue = (state, ev) => ({
@@ -24,7 +25,7 @@ export const addItem = (state, ev) => {
     ...state,
     inputValue: '',
     items: state.items.concat({
-      id: generateUUID(),
+      id: nanoid(),
       value: state.inputValue,
       done: false,
       editing: false

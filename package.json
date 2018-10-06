@@ -15,10 +15,9 @@
     "hyperapp": "^1.2.8",
     "parcel-bundler": "^1.9.7",
     "postcss-modules": "^1.3.2",
+    "sanitize.css": "^7.0.3",
     "postcss-nested": "^3.0.0",
-    "rucksack-css": "^1.0.2"
-  },
-  "dependencies": {
-    "sanitize.css": "^7.0.3"
+    "rucksack-css": "^1.0.2",
+    "nanoid": "^1.2.6"
   }
 }
