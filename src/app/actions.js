@@ -72,3 +72,9 @@ export const deleteItem = (state, id) => ({
   ...state,
   items: state.items.filter(item => id !== item.id)
 })
+
+// Removes all "done" items
+export const clearCheckedItems = (state) => ({
+  ...state,
+  items: state.items.filter(item => !item.done)
+})

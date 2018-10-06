@@ -66,61 +66,20 @@ body {
 }
 
 
-
-.card {
-  padding: 1rem;
-  background-color: #1A1A1A;
-  border-radius: 1rem;
-  display: flex;
-  align-items: center;
-  min-height: 420px;
-  .info {
-    width: 50%;
-    padding: 1rem;
-    text-align: center;
-  }
-  
-  .todo-list {
-    width: 50%;
-    padding: 1rem;
-    border-radius: 1rem;
-    background-color: #212121;
-    min-height: 320px;
-  }
-  
-  @media (max-width: 768px) {
-    flex-direction: column;
-    .info,
-    .todo-list {
-      width: 100%;
-    }
-  }
-}
-
-
-
-.state-viewer {
-  margin: 3rem 0;
-  text-align: center;
-  >pre {
-    text-align: left;
-    padding: 1rem;
-    background-color: #212121;
-    border-radius: 1rem;
-  }
-}
-
-footer {
-  margin: 3rem 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
 a {
   color: inherit;
+  cursor: pointer;
+  text-decoration: underline;
+  &:hover {
+    color: var(--accent-color);
+  }
 }
 
+
+
+pre {
+  font-size: 0.85rem;
+}
 button, input, select, textarea {
   background-color: transparent;
   border: none;
@@ -142,11 +101,20 @@ input[type="password"] {
   padding: 0.5rem 1rem;
   background-color: rgba(255,255,255,0.1);
   border-radius: 3rem;
+  &:hover {
+    background-color: rgba(255,255,255,0.15);
+  }
+  &:focus {
+    /* border: 0.05rem solid var(--accent-color); */
+  }
 }
 
 button {
   cursor: pointer;
   padding: 0.5rem;
+  &:hover {
+    color: var(--accent-color)
+  }
 }
 
 img {
@@ -163,33 +131,109 @@ svg {
 }
 
 
-.new-item-form {
+
+
+
+/*------------------------------------*\
+    Card layout
+\*------------------------------------*/
+
+.card {
+  padding: 1rem;
+  background-color: #1A1A1A;
+  border-radius: 1rem;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-}
-
-.list {
-  list-style: none;
-  padding: 0;
-}
-
-
-.item {
-  overflow: hidden;
-  border-radius: 3rem;
-  &:hover {
-    background-color: rgba(255,255,255,0.05);
+  min-height: 420px;
+  .left {
+    width: 50%;
+    padding: 1rem;
+    text-align: center;
   }
-  >.inner {
-    display: flex;
-    align-items: stretch;
-    >.name {
+  .right {
+    width: 50%;
+    .info {
+      padding: 1rem;
+      margin: auto 0 0 0;
+      font-size: 0.67rem;
+      opacity: 0.67;
       display: flex;
       align-items: center;
+      justify-content: space-between;
+    }
+  }
+  @media (max-width: 768px) {
+    flex-direction: column;
+    .left,
+    .right {
       width: 100%;
-      padding: 0 0.5rem;
     }
   }
 }
 
+
+
+
+/*------------------------------------*\
+    Todo list widget
+\*------------------------------------*/
+
+.todo-list {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 1rem;
+  border-radius: 1rem;
+  background-color: #212121;
+  min-height: 320px;
+  >.new-item-form {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  >.list {
+    list-style: none;
+    padding: 0;
+    margin-top: 0;
+    >.item {
+      overflow: hidden;
+      border-radius: 3rem;
+      &:hover {
+        background-color: rgba(255,255,255,0.05);
+      }
+      >.inner {
+        display: flex;
+        align-items: stretch;
+        >.name {
+          display: flex;
+          align-items: center;
+          width: 100%;
+          padding: 0 0.5rem;
+        }
+      }
+    }
+  }
+}
+
+
+
+
+
+
+/*------------------------------------*\
+    State viewer
+\*------------------------------------*/
+
+.state-viewer {
+  margin: 3rem 0;
+  text-align: center;
+  >a {
+    font-size: 0.67rem;
+  }
+  >pre {
+    text-align: left;
+    padding: 1rem;
+    background-color: #212121;
+    border-radius: 1rem;
+  }
+}

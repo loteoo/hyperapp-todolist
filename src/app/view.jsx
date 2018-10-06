@@ -6,7 +6,7 @@ import './style.css'
 import {h} from '../../hyperapp.js'
 
 // import actions
-import {setInputValue, addItem, updateItem, toggleItem, deleteItem, toggleStateViewer, toggleItemEditing} from './actions'
+import {setInputValue, addItem, updateItem, toggleItem, deleteItem, toggleStateViewer, toggleItemEditing, clearCheckedItems} from './actions'
 
 // Import icon components
 import {Close, Circle, CheckedCircle, Plus, Check} from './icons.js'
@@ -15,24 +15,30 @@ import {Close, Circle, CheckedCircle, Plus, Check} from './icons.js'
 export const view = state => (
   <div class="container">
     <div class="card">
-      <div class="info">
+      <div class="left">
         <h1>Hyperapp Todolist</h1>
         <p>Built with <a href="https://github.com/jorgebucaran/hyperapp" target="_blank">Hyperapp 2.0</a></p>
         <p><a href="https://github.com/loteoo/hyperapp-todolist" target="_blank">Source code</a></p>
       </div>
-      <div class="todo-list">
-        <form class="new-item-form" onsubmit={addItem} method="post">
-          <input type="text" placeholder="Type something here..." value={state.inputValue} oninput={setInputValue} required />
-          <button type="submit"><Plus /></button>
-        </form>
-        <h4>{state.items.length} items</h4>
-        <ul class="list">
-          {state.items.map(item => <Item {...item} />)}
-        </ul>
+      <div className="right">
+        <div class="todo-list">
+          <form class="new-item-form" onsubmit={addItem} method="post">
+            <input type="text" placeholder="Type something here..." value={state.inputValue} oninput={setInputValue} required />
+            <button type="submit"><Plus /></button>
+          </form>
+          <h4>{state.items.length} items</h4>
+          <ul class="list">
+            {state.items.map(item => <Item {...item} />)}
+          </ul>
+        </div>
+        <div class="info">
+          <span>Double click to edit.</span>
+          <a onclick={[clearCheckedItems]}>Clear checked items</a>
+        </div>
       </div>
     </div>
     <div class="state-viewer">
-      <button onclick={toggleStateViewer}>{state.stateIsShown ? 'Hide state' : 'Show app state'}</button>
+      <a onclick={toggleStateViewer}>{state.stateIsShown ? 'Hide state' : 'Show app state'}</a>
       {state.stateIsShown ? <pre>{JSON.stringify(state, null, 2)}</pre> : null}
     </div>
   </div>
@@ -50,7 +56,7 @@ const Item = ({id, value, done, editing}) => (
         </form>
       )
       : (
-        <div class="inner">
+        <div class={'inner' + (done ? ' done' : '')}>
           <button class="check" onclick={[toggleItem, id]}>{done ? <CheckedCircle /> : <Circle />}</button>
           <div class="name" ondblclick={[toggleItemEditing, id]}>
             {
