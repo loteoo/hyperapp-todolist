@@ -2,7 +2,7 @@
 // Global actions 
 // ==================
 
-// Generates unique ids
+// Generates a unique random string
 import nanoid from 'nanoid'
 
 // Sets the new item input value in the state
