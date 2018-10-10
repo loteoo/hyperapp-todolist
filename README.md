@@ -21,3 +21,6 @@ npm start       # Dev server + live reload
 ```
 npm run build   # Build for production
 ```
+
+Boilerplate:  
+https://github.com/loteoo/hyperapp-boilerplate
