@@ -1,4 +1,4 @@
-# Hyperapp 2.0 todo list app
+# Hyperapp 2.0 to-do list app
 *CRUD manipulations in a functionnal paradigm*  
 
 https://loteoo.github.io/hyperapp-todolist/
