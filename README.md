@@ -1,5 +1,5 @@
 # Hyperapp 2.0 todo list app
-*Comparing different front-end frameworks*  
+*CRUD manipulations in a functionnal paradigm*  
 
 https://loteoo.github.io/hyperapp-todolist/
 
