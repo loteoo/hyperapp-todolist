@@ -3,22 +3,22 @@ import 'sanitize.css'
 import './style.css'
 
  // Hyperapp v2
-import {h} from '../../hyperapp.js'
+import {h} from 'hyperapp'
 
 // import actions
 import {setInputValue, addItem, updateItem, toggleItem, deleteItem, toggleStateViewer, toggleItemEditing, clearCheckedItems} from './actions'
 
 // Import icon components
-import {Close, Circle, CheckedCircle, Plus, Check} from './icons.js'
+import {Close, Circle, CheckedCircle, Plus, Check, Github} from './icons.js'
 
 // Root application view
 export const view = state => (
   <div class="container">
     <div class="card">
       <div class="left">
-        <h1>Hyperapp Todolist</h1>
+        <h1>Hyperapp to-do list</h1>
         <p>Built with <a href="https://github.com/jorgebucaran/hyperapp" target="_blank">Hyperapp 2.0</a></p>
-        <p><a href="https://github.com/loteoo/hyperapp-todolist" target="_blank">Source code</a></p>
+        <p><a href="https://github.com/loteoo/hyperapp-todolist" target="_blank"><Github /> Source code</a></p>
       </div>
       <div className="right">
         <div class="todo-list">

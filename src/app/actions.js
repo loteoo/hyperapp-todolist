@@ -11,7 +11,7 @@ export const setInputValue = (state, ev) => ({
   inputValue: ev.target.value
 })
 
-// Sets the new item input value in the state
+// Toggles the state viewer
 export const toggleStateViewer = (state) => ({
   ...state,
   stateIsShown: !state.stateIsShown
