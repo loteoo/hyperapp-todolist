@@ -32,7 +32,7 @@ export const view = state => (
           </ul>
         </div>
         <div class="info">
-          <span>Double click to edit.</span>
+          <span>Click to edit.</span>
           <a onclick={[clearCheckedItems]}>Clear checked items</a>
         </div>
       </div>
@@ -58,7 +58,7 @@ const Item = ({id, value, done, editing}) => (
       : (
         <div class={'inner' + (done ? ' done' : '')}>
           <button class="check" onclick={[toggleItem, id]}>{done ? <CheckedCircle /> : <Circle />}</button>
-          <div class="name" ondblclick={[toggleItemEditing, id]}>
+          <div class="name" onclick={[toggleItemEditing, id]}>
             {
               done
               ? <strike>{value}</strike>
