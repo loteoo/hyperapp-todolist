@@ -10,9 +10,9 @@ https://loteoo.github.io/hyperapp-todolist/
 The entire javascipt bundle for this app is 4.6 KB
 
 The page size is  
-4% Javascript  (Hyperapp + source code)
-3% CSS
-93% fonts  (But its pretty!)
+4% Javascript  (Hyperapp + source code)  
+3% CSS  
+93% fonts  (But its pretty!)  
 
 ```
 # Clone project
