@@ -9,6 +9,8 @@ https://loteoo.github.io/hyperapp-todolist/
 
 The entire javascipt bundle for this app is **4.6 KB**
 
+Supports offline and persists it's state through localstorage
+
 
 ```
 # Clone project
@@ -21,7 +23,7 @@ npm start       # Dev server + live reload
 ```
 
 ```
-npm run build   # Build for production
+npm run build   # Build for github pages
 ```
 
 Boilerplate:  
