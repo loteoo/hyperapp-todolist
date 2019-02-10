@@ -8,11 +8,9 @@
     "start": "parcel src/index.html --open",
     "build": "parcel build ./src/index.html --no-source-maps --out-dir docs --public-url ./ --detailed-report --no-content-hash"
   },
-  "dependencies": {
-    "hyperapp": "github:jorgebucaran/hyperapp#V2",
-    "sanitize.css": "^8.0.0"
-  },
   "devDependencies": {
+    "hyperapp": "github:jorgebucaran/hyperapp#V2",
+    "sanitize.css": "^8.0.0",
     "autoprefixer": "^9.4.3",
     "babel-eslint": "^10.0.1",
     "eslint": "^5.12.1",
