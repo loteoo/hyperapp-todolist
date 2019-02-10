@@ -1,5 +1,5 @@
 // ==================
-// Global actions 
+// Global actions
 // ==================
 
 // Generates a unique random string
@@ -20,7 +20,7 @@ export const toggleStateViewer = (state) => ({
 // Adds a new item in the array
 // and resets the input.
 export const addItem = (state, ev) => {
-  ev.preventDefault();
+  ev.preventDefault()
   return {
     ...state,
     inputValue: '',
@@ -36,8 +36,8 @@ export const addItem = (state, ev) => {
 // Updates the "value" attribute of an item by ID
 export const updateItem = (state, id, ev) => ({
   ...state,
-  items:  state.items.map(item => 
-    id === item.id 
+  items: state.items.map(item =>
+    id === item.id
       ? ({...item, value: ev.target.value})
       : item
   )
@@ -46,8 +46,8 @@ export const updateItem = (state, id, ev) => ({
 // Inverts the "done" attribute of an item by ID
 export const toggleItem = (state, id) => ({
   ...state,
-  items:  state.items.map(item => 
-    id === item.id 
+  items: state.items.map(item =>
+    id === item.id
       ? ({...item, done: !item.done})
       : item
   )
@@ -56,11 +56,11 @@ export const toggleItem = (state, id) => ({
 // Inverts the "editing" attribute of an item by ID,
 // and sets to false for all other items
 export const toggleItemEditing = (state, id, ev) => {
-  ev.preventDefault();
+  ev.preventDefault()
   return {
     ...state,
-    items:  state.items.map(item => 
-      id === item.id 
+    items: state.items.map(item =>
+      id === item.id
         ? ({...item, editing: !item.editing})
         : ({...item, editing: false})
     )

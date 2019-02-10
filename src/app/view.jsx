@@ -1,11 +1,20 @@
-  // vDOM builder
-  import {h} from 'hyperapp'
+// vDOM builder
+import {h} from 'hyperapp'
 
- // Bundle css for this view
- import './style.css'
+// Bundle css for this view
+import './style.css'
 
 // Import actions
-import {setInputValue, addItem, updateItem, toggleItem, deleteItem, toggleStateViewer, toggleItemEditing, clearCheckedItems} from './actions'
+import {
+  setInputValue,
+  addItem,
+  updateItem,
+  toggleItem,
+  deleteItem,
+  toggleStateViewer,
+  toggleItemEditing,
+  clearCheckedItems
+} from './actions'
 
 // Root application view
 export const view = state => (
@@ -45,27 +54,25 @@ const Item = ({id, value, done, editing}) => (
   <li class="item" key={id}>
     {
       editing
-      ? ( // If the item if currently being edited
-        <form class="inner" method="post" onsubmit={[toggleItemEditing, id]}>
-          <input type="text" value={value} onCreate={el => el.focus()} oninput={[updateItem, id]} required />
-          <button class="confirm">{'<Check />'}</button>
-        </form>
-      )
-      : ( // If the item if NOT being edited
-        <div class={'inner' + (done ? ' done' : '')}>
-          <button class="check" onclick={[toggleItem, id]}>{done ? '<CheckedCircle />' : '<Circle />'}</button>
-          <div class="name" onclick={[toggleItemEditing, id]}>
-            {
-              done
-              ? <strike>{value}</strike>
-              : <span>{value}</span>
-            }
+        ? ( // If the item if currently being edited
+          <form class="inner" method="post" onsubmit={[toggleItemEditing, id]}>
+            <input type="text" value={value} onCreate={el => el.focus()} oninput={[updateItem, id]} required />
+            <button class="confirm">{'<Check />'}</button>
+          </form>
+        )
+        : ( // If the item if NOT being edited
+          <div class={'inner' + (done ? ' done' : '')}>
+            <button class="check" onclick={[toggleItem, id]}>{done ? '<CheckedCircle />' : '<Circle />'}</button>
+            <div class="name" onclick={[toggleItemEditing, id]}>
+              {
+                done
+                  ? <strike>{value}</strike>
+                  : <span>{value}</span>
+              }
+            </div>
+            <button class="delete" onclick={[deleteItem, id]}>{"rola('../assets/icons/close.svg')"}</button>
           </div>
-          <button class="delete" onclick={[deleteItem, id]}>{"rola('../assets/icons/close.svg')"}</button>
-        </div>
-      )
+        )
     }
   </li>
 )
-
-
