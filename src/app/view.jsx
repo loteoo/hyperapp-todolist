@@ -6,7 +6,14 @@ import 'sanitize.css'
 import './style.css'
 
 // Import icon components
-import {Close, Circle, CheckedCircle, Plus, Check, Github} from './icons.js'
+import {
+  Close,
+  Circle,
+  CheckedCircle,
+  Plus,
+  Check,
+  Github
+} from './icons.js'
 
 // Import actions
 import {
@@ -20,7 +27,7 @@ import {
   ClearCheckedItems
 } from './actions'
 
-// Root application view
+// Application view
 export const view = state => (
   <div class="container">
     <div class="card">
