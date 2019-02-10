@@ -6,14 +6,14 @@ import './style.css'
 
 // Import actions
 import {
-  setInputValue,
-  addItem,
-  updateItem,
-  toggleItem,
-  deleteItem,
-  toggleStateViewer,
-  toggleItemEditing,
-  clearCheckedItems
+  SetInput,
+  AddItem,
+  UpdateItem,
+  ToggleItem,
+  DeleteItem,
+  ToggleStateViewer,
+  ToggleItemEditing,
+  ClearCheckedItems
 } from './actions'
 
 // Root application view
@@ -27,8 +27,8 @@ export const view = state => (
       </div>
       <div className="right">
         <div class="todo-list">
-          <form class="new-item-form" onsubmit={addItem} method="post">
-            <input type="text" placeholder="Type something here..." value={state.inputValue} oninput={setInputValue} required />
+          <form class="new-item-form" onsubmit={AddItem} method="post">
+            <input type="text" placeholder="Type something here..." value={state.input} oninput={SetInput} required />
             <button type="submit">{'<Plus />'}</button>
           </form>
           <h4>{state.items.length} items</h4>
@@ -38,13 +38,13 @@ export const view = state => (
         </div>
         <div class="info">
           <span>Click to edit.</span>
-          <a onclick={[clearCheckedItems]}>Clear checked items</a>
+          <a onclick={[ClearCheckedItems]}>Clear checked items</a>
         </div>
       </div>
     </div>
     <div class="state-viewer">
-      <a onclick={toggleStateViewer}>{state.stateIsShown ? 'Hide state' : 'Show app state'}</a>
-      {state.stateIsShown ? <pre>{JSON.stringify(state, null, 2)}</pre> : null}
+      <a onclick={ToggleStateViewer}>{state.showState ? 'Hide state' : 'Show app state'}</a>
+      {state.showState ? <pre>{JSON.stringify(state, null, 2)}</pre> : null}
     </div>
   </div>
 )
@@ -55,22 +55,22 @@ const Item = ({id, value, done, editing}) => (
     {
       editing
         ? ( // If the item if currently being edited
-          <form class="inner" method="post" onsubmit={[toggleItemEditing, id]}>
-            <input type="text" value={value} onCreate={el => el.focus()} oninput={[updateItem, id]} required />
+          <form class="inner" method="post" onsubmit={[ToggleItemEditing, id]}>
+            <input type="text" value={value} onCreate={el => el.focus()} oninput={[UpdateItem, id]} required />
             <button class="confirm">{'<Check />'}</button>
           </form>
         )
-        : ( // If the item if NOT being edited
+        : ( // If the item is NOT being edited (default)
           <div class={'inner' + (done ? ' done' : '')}>
-            <button class="check" onclick={[toggleItem, id]}>{done ? '<CheckedCircle />' : '<Circle />'}</button>
-            <div class="name" onclick={[toggleItemEditing, id]}>
+            <button class="check" onclick={[ToggleItem, id]}>{done ? '<CheckedCircle />' : '<Circle />'}</button>
+            <div class="name" onclick={[ToggleItemEditing, id]}>
               {
                 done
                   ? <strike>{value}</strike>
                   : <span>{value}</span>
               }
             </div>
-            <button class="delete" onclick={[deleteItem, id]}>{"rola('../assets/icons/close.svg')"}</button>
+            <button class="delete" onclick={[DeleteItem, id]}>{"rola('../assets/icons/close.svg')"}</button>
           </div>
         )
     }

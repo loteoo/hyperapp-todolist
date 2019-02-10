@@ -6,27 +6,27 @@
 import nanoid from 'nanoid'
 
 // Sets the new item input value in the state
-export const setInputValue = (state, ev) => ({
+export const SetInput = (state, ev) => ({
   ...state,
-  inputValue: ev.target.value
+  input: ev.target.value
 })
 
-// Toggles the state viewer
-export const toggleStateViewer = (state) => ({
+// Toggle the state viewer
+export const ToggleStateViewer = (state) => ({
   ...state,
-  stateIsShown: !state.stateIsShown
+  showState: !state.showState
 })
 
 // Adds a new item in the array
 // and resets the input.
-export const addItem = (state, ev) => {
+export const AddItem = (state, ev) => {
   ev.preventDefault()
   return {
     ...state,
-    inputValue: '',
+    input: '',
     items: state.items.concat({
       id: nanoid(),
-      value: state.inputValue,
+      value: state.input,
       done: false,
       editing: false
     })
@@ -34,7 +34,7 @@ export const addItem = (state, ev) => {
 }
 
 // Updates the "value" attribute of an item by ID
-export const updateItem = (state, id, ev) => ({
+export const UpdateItem = (state, id, ev) => ({
   ...state,
   items: state.items.map(item =>
     id === item.id
@@ -44,7 +44,7 @@ export const updateItem = (state, id, ev) => ({
 })
 
 // Inverts the "done" attribute of an item by ID
-export const toggleItem = (state, id) => ({
+export const ToggleItem = (state, id) => ({
   ...state,
   items: state.items.map(item =>
     id === item.id
@@ -55,7 +55,7 @@ export const toggleItem = (state, id) => ({
 
 // Inverts the "editing" attribute of an item by ID,
 // and sets to false for all other items
-export const toggleItemEditing = (state, id, ev) => {
+export const ToggleItemEditing = (state, id, ev) => {
   ev.preventDefault()
   return {
     ...state,
@@ -68,13 +68,13 @@ export const toggleItemEditing = (state, id, ev) => {
 }
 
 // Removes an item in the array by ID
-export const deleteItem = (state, id) => ({
+export const DeleteItem = (state, id) => ({
   ...state,
   items: state.items.filter(item => id !== item.id)
 })
 
 // Removes all "done" items
-export const clearCheckedItems = (state) => ({
+export const ClearCheckedItems = (state) => ({
   ...state,
   items: state.items.filter(item => !item.done)
 })
